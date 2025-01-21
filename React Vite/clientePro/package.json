@@ -1,0 +1,39 @@
+{
+  "name": "clientepro",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",    
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "cordova-android": "cd clienteproApp && cordova build android",
+    "electron": "npm run build && electron ./clienteElect/main.js",
+    "all": "npm run build && npm run cordova-android && npm run electron",
+    "dev-all": "npm run build && concurrently \"vite --host 0.0.0.0\" \"npm run dev-cordova\" \"npm run dev-electron\"",
+    "dev-cordova": "cd clienteproApp && cordova run android",
+    "dev-electron": "electron ./clienteElect/main.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "http-server": "^14.1.1",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.18.2",
+    "vite": "^6.0.5"
+  }
+}
