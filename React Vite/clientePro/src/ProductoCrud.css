@@ -1,108 +1,160 @@
-.producto-crud-container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc;
+  margin: 0;
+  padding: 0;
+}
+
+.producto-container {
+  max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho de la pantalla */
+  margin: 40px auto;
+  padding: 10px; /* Reducido para pantallas pequeñas */
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Title Styles */
+.titulo {
+  font-size: 18px; /* Ajuste para pantallas pequeñas */
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Form Styles */
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Ajuste de espacio entre elementos */
+  margin-bottom: 30px;
+}
+
+.form-group {
+  flex: 1 1 100%; /* Asegura que cada campo ocupe todo el ancho en pantallas pequeñas */
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px; /* Ajuste en padding */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px; /* Reducido para pantallas pequeñas */
+}
+
+.form-input.error {
+  border-color: #f44336;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Button Styles */
+.btn-submit {
+  padding: 10px 18px; /* Ajuste en tamaño de botón */
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+}
+
+.show-eliminados-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  padding: 8px; /* Ajuste en padding de la tabla */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px; /* Ajuste para pantallas pequeñas */
+}
+
+.table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Action Button Styles */
+.btn-edit, .btn-delete {
+  padding: 6px 12px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-edit {
+  background-color: #4CAF50;
+}
+
+.btn-edit:hover {
+  background-color: #45a049;
+}
+
+.btn-delete {
+  background-color: #f44336;
+}
+
+.btn-delete:hover {
+  background-color: #e53935;
+}
+
+/* Media Queries for 412px wide screens (Samsung Galaxy A51/71) */
+@media (max-width: 412px) {
+  .producto-container {
+    padding: 15px; /* Reducido para ajustarse mejor a pantallas pequeñas */
   }
-  
+
   .titulo {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: 16px; /* Ajuste en el tamaño del título */
   }
-  
-  .form-producto {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+
+  .form-input {
+    font-size: 12px; /* Ajuste más pequeño para inputs */
+    padding: 8px; /* Ajuste en padding de los inputs */
   }
-  
-  .input-field,
-  .textarea-field {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-  }
-  
-  .textarea-field {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
+
   .btn-submit {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 150px;
-    align-self: center;
+    padding: 10px 15px; /* Ajuste en el tamaño del botón */
   }
-  
-  .btn-submit:hover {
-    background-color: #45a049;
+
+  .table th, .table td {
+    font-size: 12px; /* Asegura que el texto en la tabla sea legible en pantallas pequeñas */
+    padding: 6px; /* Ajuste en padding de las celdas de la tabla */
   }
-  
-  .filter-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
+
+  .btn-edit, .btn-delete {
+    padding: 6px 12px; /* Ajuste en tamaño de los botones de acción */
   }
-  
-  .table-productos {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+
+  /* Ajuste en los márgenes del contenedor de "Mostrar eliminados" */
+  .show-eliminados-container {
+    justify-content: center;
   }
-  
-  .table-productos th,
-  .table-productos td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .table-productos th {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .table-productos tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .btn-edit,
-  .btn-delete {
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .btn-edit {
-    background-color: #ffa500;
-    color: white;
-  }
-  
-  .btn-delete {
-    background-color: #e74c3c;
-    color: white;
-  }
-  
-  .btn-edit:hover {
-    background-color: #e67e22;
-  }
-  
-  .btn-delete:hover {
-    background-color: #c0392b;
-  }
-  
+}
