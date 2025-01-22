@@ -1,0 +1,24 @@
+SI NO TIENES CONEXTIVIDAD A TU BD USA:
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+    flush privileges;
+
+AGREGAR LAS SIGUIENTES LIBRERIAS (PARA UN PROYECTO WEB O UN API REST):
+    npm init
+    npm install
+    npm install express    
+    npm install express-session
+    npm install sequelize 
+    npm install mysql2
+    npm install body-parser
+    npm install ejs 
+    npm install dotenv
+    npm install swagger-jsdoc swagger-ui-express
+    npm install cors
+    npm update
+
+//Configurar las variables de entorno
+require("dotenv").config({path:"./properties.env"});
+
+//Para cargar el proyecto tienen que ejecutar las siguientes lineas de comandos 
+    npm update
+    npm start
