@@ -13,7 +13,7 @@ function App() {
 
     if (username === 'admin' && password === '12345') {
       setMessage('Login exitoso');
-      navigate('/dashboard'); // Redirige a /dashboard si las credenciales son correctas
+      navigate('/Dashboard'); // Redirige a /dashboard si las credenciales son correctas
     } else {
       setMessage('Usuario o contraseña incorrectos');
     }

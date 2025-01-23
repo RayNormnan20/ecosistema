@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importa Router y Routes
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // Usa HashRouter
 import App from './App.tsx';
-import Dashboard from './Dashboard'; // Importa el componente Dashboard
-import ProductoCrud from './ProductoCrud'; // Importa el componente ProductoCrud
+import Dashboard from './Dashboard';
+import ProductoCrud from './ProductoCrud';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -12,8 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes> {/* Definimos las rutas */}
         <Route path="/" element={<App />} /> {/* Ruta para el Login */}
         <Route path="/dashboard" element={<Dashboard />} /> {/* Ruta para el Dashboard */}
-        <Route path="/productos" element={<ProductoCrud />} />
-
+        <Route path="/productos" element={<ProductoCrud />} /> {/* Ruta para el CRUD de productos */}
       </Routes>
     </Router>
   </StrictMode>,
