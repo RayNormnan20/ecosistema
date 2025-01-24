@@ -9,14 +9,18 @@ function ProductoCrud() {
   const [showEliminados, setShowEliminados] = useState(false);
   const [errors, setErrors] = useState<{ nombre?: string; precio?: string; descripcion?: string }>({});
 
+  // Usa la URL base de la API desde las variables de entorno
+  const API_URL = 'http://192.168.100.7:4000/api'; // La IP del servidor en tu red local
+
+
   useEffect(() => {
     fetchProductos();
   }, []);
 
   const fetchProductos = async () => {
     try {
-      const response = await axios.get<{ id: number; nombre: string; precio: number; descripcion: string; estado: boolean }[]>( 
-        "http://localhost:4000/api/producto"
+      const response = await axios.get<{ id: number; nombre: string; precio: number; descripcion: string; estado: boolean }[]>(
+        `${API_URL}/producto`
       );
       const productosActivos = response.data.filter(producto => producto.estado === true);
       setProductos(productosActivos);
@@ -30,7 +34,7 @@ function ProductoCrud() {
     setShowEliminados(newShowEliminados);
 
     if (newShowEliminados) {
-      const url = "http://localhost:4000/api/producto/desactivos";
+      const url = `${API_URL}/producto/desactivos`;
       try {
         const response = await axios.get<{ id: number; nombre: string; precio: number; descripcion: string; estado: boolean }[]>(url);
         setProductos(response.data);
@@ -58,9 +62,9 @@ function ProductoCrud() {
     try {
       const formData = { ...form, precio: parseFloat(form.precio), estado: true };
       if (editingId) {
-        await axios.put(`http://localhost:4000/api/producto/${editingId}`, formData);
+        await axios.put(`${API_URL}/producto/${editingId}`, formData);
       } else {
-        await axios.post("http://localhost:4000/api/producto", formData);
+        await axios.post(`${API_URL}/producto`, formData);
       }
 
       setForm({ nombre: "", precio: "", descripcion: "" });
@@ -78,7 +82,7 @@ function ProductoCrud() {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:4000/api/producto/${id}`);
+      await axios.delete(`${API_URL}/producto/${id}`);
       fetchProductos();
     } catch (error) {
       console.error("Error al eliminar el producto", error);
@@ -88,7 +92,7 @@ function ProductoCrud() {
   return (
     <div className="producto-container">
       <h2 className="titulo">Gestión de Productos</h2>
-      
+
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
           <label>Nombre</label>
