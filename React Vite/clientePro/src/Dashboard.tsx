@@ -14,6 +14,36 @@ function Dashboard() {
           📦 Gestión de Productos
         </button>
 
+        {/* Gestión de Usuarios */}
+        <button onClick={() => navigate('/usuarios')} style={styles.button}>
+          👤 Gestión de Usuarios
+        </button>
+
+        {/* Reportes */}
+        <button onClick={() => navigate('/reportes')} style={styles.button}>
+          📊 Reportes
+        </button>
+
+        {/* Configuración */}
+        <button onClick={() => navigate('/configuracion')} style={styles.button}>
+          ⚙️ Configuración
+        </button>
+
+        {/* Inventario */}
+        <button onClick={() => navigate('/inventario')} style={styles.button}>
+          🏬 Inventario
+        </button>
+
+        {/* Facturación */}
+        <button onClick={() => navigate('/facturacion')} style={styles.button}>
+          🧾 Facturación
+        </button>
+
+        {/* Soporte Técnico */}
+        <button onClick={() => navigate('/soporte')} style={styles.button}>
+          🛠️ Soporte Técnico
+        </button>
+
         {/* Botón para salir */}
         <button 
           onClick={() => navigate('/')} 
